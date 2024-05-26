@@ -6,3 +6,6 @@ class Processo:
         self.priority = priority
         self.waiting_time = 0
         self.response_time = 0
+        self.in_execution = False
+        self.execution_needed = execution_time_needed
+        self.completed_time = 0

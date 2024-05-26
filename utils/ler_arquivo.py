@@ -2,6 +2,8 @@ import os
 
 def ler_arquivo_e_criar_processos(caminho_do_arquivo):
     from models.processo import Processo
+
+    n_process = 0
     
 
     caminho_completo = os.path.join(os.path.dirname(__file__), '..', caminho_do_arquivo)
@@ -23,5 +25,6 @@ def ler_arquivo_e_criar_processos(caminho_do_arquivo):
             priority=priorities[i]
         )
         processos.append(processo)
+        n_process +=1
 
-    return processos
+    return processos, n_process
