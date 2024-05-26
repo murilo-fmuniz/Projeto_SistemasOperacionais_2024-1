@@ -13,4 +13,4 @@ class Procedure:
 
     def imprimirProcessos(self):
         for processo in self.processes:
-            print(f"Processo {processo.name}: {processo.arrival_time}")
+            print(f"{self.__class__.__name__} =>Processo {processo.name}: {processo.arrival_time}")

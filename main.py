@@ -18,8 +18,9 @@ def main(caminho_do_arquivo):
         rr.adicionar_processo(processo)
         prioridade.adicionar_processo(processo)
 
-
-    
+    sjf.imprimirProcessos()
+    rr.imprimirProcessos()
+    prioridade.imprimirProcessos()
 
 
 
