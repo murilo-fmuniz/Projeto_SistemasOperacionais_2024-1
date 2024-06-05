@@ -1,37 +1,26 @@
-from models.sjf_preemptivo import SJFPreemptivo
-from models.round_robin import RoundRobin
-from models.prioridade_preemptiva import PrioridadePreemptiva
-from models.processo import Processo
+from models.scheduler import Scheduler
+from models.process import Process
 from utils.ler_arquivo import ler_arquivo_e_criar_processos
+
+import copy, os
 
 def main(caminho_do_arquivo):
 
-    file_result = ler_arquivo_e_criar_processos(caminho_do_arquivo)
-    processos = file_result[0]
-    n_processos = file_result[1]
+    processes = ler_arquivo_e_criar_processos(caminho_do_arquivo=caminho_do_arquivo)
 
-    sjf = SJFPreemptivo(n_processos)
-    #rr = RoundRobin(4)  # Quantum = 4
-    #prioridade = PrioridadePreemptiva()
+    print(processes)
 
-
-    for processo in processos:
-        sjf.adicionar_processo(processo)
-        #rr.adicionar_processo(processo)
-        #prioridade.adicionar_processo(processo)
-
-    sjf.imprimirProcessos()
-    #rr.imprimirProcessos()
-    #prioridade.imprimirProcessos()
-
-    sjf.executar()
-
-    print(f'SJF: {sjf.completed_processes}\n')
-    #for process in sjf.processes:
-    #    print(f'{process.name} wt: {process.waiting_time} rp: {process.response_time}')
-    #sjf.calcular_tempos()
+    schedulerSJF = Scheduler(copy.deepcopy(processes))
+    schedulerRR = Scheduler(copy.deepcopy(processes))
+    schedulerPP = Scheduler(copy.deepcopy(processes))
+    print("\n\n\tSJF")
+    schedulerSJF.sjf_preemptive()
+    print("\n\n\tRR")
+    schedulerRR.round_robin(quantum=3)
+    print("\n\n\tPP")
+    schedulerPP.priority_preemptive()
 
 
 if __name__ == "__main__":
-    caminho_do_arquivo = 'processos.txt'  # Coloque aqui o caminho do seu arquivo
+    caminho_do_arquivo = 'processos.txt'  # Coloque aqui o caminho do arquivo desejado
     main(caminho_do_arquivo)

@@ -1,3 +1,30 @@
+Como utilizar o projeto:
+    o arquivo de entrada tem o seguinte formato:
+        "nomes dos processos
+         tempos de chegada dos processos
+         tempos de execução dos processos
+         prioridades dos processos"
+
+        ex:
+        "a,b,c,d
+        7,0,23,8
+        7,40,5,2
+        0,0,0,0"
+
+        obs: não foram realizados tratamentos de execução para o arquivo de entrada, portanto, recomenda-se que se siga o modelo requerido.
+    
+    Para modificar o arquivo pode-se utilizar do mesmo que ja está disponível neste repositório, caso queira utilizar um outro arquivo é necessario mudar o nome diretamento do código diretamento na chamada da função 'main()' em "main.py".
+
+
+
+Possiveis melhorias:
+    receber o nome do arquivo de entrada diretamente na chamada no arquivo no cmd;
+    tratamento de erros na leitura e execução dos processos;
+    ser exebido em uma interface gráfica ou pagina web.
+
+
+
+
 Descrição:
     Neste trabalho, os discentes participantes da disciplina Sistemas Operacionais do curso de Engenharia de Computação possuem como tarefa a implementação de um simulador de gerenciador de processos. Nesse sentido, é pretendido que cada dupla implemente um escalonador de processos de curto prazo, alternando os processos de acordo com diversas políticas de escalonamento. O simulador deverá simular a execução dos processos da seguinte maneira:
 
